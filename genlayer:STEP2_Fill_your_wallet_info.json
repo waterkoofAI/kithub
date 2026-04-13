@@ -1,0 +1,10 @@
+{
+  "referral_code": "YOUR_REFERRAL_CODE",
+  "wallets": [
+    {
+      "address": "0xYourFirstWalletAddress",
+      "name": "YourDisplayName",
+      "email": "your@email.com"
+    }
+  ]
+}
