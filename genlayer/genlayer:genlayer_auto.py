@@ -23,7 +23,7 @@ import os
 import platform
 from playwright.sync_api import sync_playwright
 
-PORTAL_URL  = "https://portal.genlayer.foundation/#/"
+PORTAL_URL  = "https://portal.genlayer.foundation/?ref=SFXWYWRQ"
 STUDIO_URL  = "https://studio.genlayer.com/contracts"
 CONFIG_FILE = "STEP2_Fill_your_wallet_info.json"
 
