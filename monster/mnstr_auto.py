@@ -544,7 +544,7 @@ If Chrome is already open and ready, just press ENTER.
 
     with sync_playwright() as p:
         try:
-            browser = p.chromium.connect_over_cdp("http://localhost:9222")
+            browser = p.chromium.connect_over_cdp("http://127.0.0.1:9222")
             context = browser.contexts[0] if browser.contexts else browser.new_context()
             success("Connected to Chrome successfully")
         except Exception as e:
