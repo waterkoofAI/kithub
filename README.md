@@ -12,7 +12,9 @@ Semi-automatic airdrop script kits for Web3 users.
 
 | Project | Label | Coverage | Wallet | Tested On |
 |---------|-------|----------|--------|-----------|
-| [MNSTR](./monster) | ✅ VERIFIED | 6/8 tasks (~85%) | BitgetWallet* | Windows |
+| [MNSTR](./monster) | ✅ VERIFIED | 6/8 tasks (~75%) | BitgetWallet* | Windows |
+| [ROBIN MARKETS](./robin_markets) | ✅ VERIFIED | 4/5 tasks (80%) | BitgetWallet* | Windows |
+| [ASPHODEL](./asphodel) | ✅ VERIFIED | 4/4 tasks (100%) | BitgetWallet* | Windows |
 
 *MNSTR supports Ethereum & Solana chains.
 
