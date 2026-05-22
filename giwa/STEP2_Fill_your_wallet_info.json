@@ -1,0 +1,12 @@
+{
+    "referral_code": "none",
+    "network": "giwa-sepolia",
+    "use_backup_faucet": false,
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}
