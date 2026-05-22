@@ -1,0 +1,11 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "solana",
+    "wallets": [
+        {
+            "address": "0xYourWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}
