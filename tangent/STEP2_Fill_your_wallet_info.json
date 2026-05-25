@@ -1,0 +1,14 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "ethereum",
+    "deposit_token": "USDC",
+    "pool_choice": "USDC/USG",
+    "lp_strategy": "hold",
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}
