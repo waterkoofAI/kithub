@@ -1,0 +1,13 @@
+{
+    "referral_code": "yy61h8u-6a",
+    "squad_code": "YOUR_SQUAD_CODE_IF_DIFFERENT",
+    "network": "sui",
+    "collateral_token": "USDC",
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}
