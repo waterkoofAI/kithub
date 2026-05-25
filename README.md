@@ -12,14 +12,14 @@ Want to build a kit? Get the [Developer Kit](https://github.com/waterkoofAI/kith
 
 | Project | Folder | Coverage | Wallet | Network / Focus | Tested On |
 |---------|--------|----------|--------|-----------------|-----------|
-| [Asphodel](./asphodel) | `asphodel` | 4/4 tasks (100%) | Bitget Wallet | Sepolia playtest | Windows |
-| [BEEP](./beep) | `beep` | 4/8 tasks (~50%) | Bitget Wallet | Sui, points, squads, AI agents | Windows |
-| [GIWA](./giwa) | `giwa` | 6/6 steps (~100%) | Bitget Wallet | GIWA Sepolia activity | Windows |
-| [MNSTR](./monster) | `monster` | 6/6 tasks (~100%) | Bitget Wallet | Ethereum/Solana strategy game | Windows |
-| [Monetrix](./Monetrix) | `Monetrix` | 4/7 tasks (~57%) | Bitget Wallet | Hyperliquid Genesis Signal | Windows |
-| [Robin Markets](./robin_markets) | `robin_markets` | 4/4 tasks (~100%) | Bitget Wallet | Robin staking/referrals | Windows |
-| [SHIFT](./Shift) | `Shift` | 3/6 tasks (~50%) | Bitget Wallet | Solana loyalty dashboard | Windows |
-| [Tangent](./tangent) | `tangent` | 3/6 tasks (~50%) | Bitget Wallet | Ethereum predeposit | Windows |
+| [Asphodel](./asphodel) | `asphodel` | 4/4 tasks (100%) | Bitget | Sepolia playtest | Windows |
+| [BEEP](./beep) | `beep` | 4/8 tasks (~50%) | Bitget | Sui, points, squads, AI agents | Windows |
+| [GIWA](./giwa) | `giwa` | 6/6 steps (~100%) | Bitget | GIWA Sepolia activity | Windows |
+| [MNSTR](./monster) | `monster` | 6/6 tasks (~100%) | Bitget | Ethereum/Solana strategy game | Windows |
+| [Monetrix](./Monetrix) | `Monetrix` | 4/7 tasks (~57%) | Bitget | Hyperliquid Genesis Signal | Windows |
+| [Robin Markets](./robin_markets) | `robin_markets` | 4/4 tasks (~100%) | Bitget | Robin staking/referrals | Windows |
+| [SHIFT](./Shift) | `Shift` | 3/6 tasks (~50%) | Bitget | Solana loyalty dashboard | Windows |
+| [Tangent](./tangent) | `tangent` | 3/6 tasks (~50%) | Bitget | Ethereum predeposit | Windows |
 
 All kits are guided automation: browser navigation may be automated, but wallet approvals, signatures, deposits, trades, staking, claims, and other sensitive actions stay manual by design.
 
