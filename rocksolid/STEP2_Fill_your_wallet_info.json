@@ -1,0 +1,9 @@
+{
+  "network": "ethereum",
+  "vault_preference": "megaeth_usdm",
+  "wallets": [
+    {
+      "address": "0x0YourWalletAddress1Here"
+    }
+  ]
+}

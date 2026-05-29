@@ -1,0 +1,9 @@
+{
+  "network": "base",
+  "referral_code": "DUST-9A2VP",
+  "wallets": [
+    {
+      "address": "0xYourWalletAddress1Here"
+    }
+  ]
+}

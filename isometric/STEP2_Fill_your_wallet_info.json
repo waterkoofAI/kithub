@@ -1,0 +1,8 @@
+{
+  "network": "solana-devnet",
+  "wallets": [
+    {
+      "address": "Your0SolanaWalletAddress"
+    }
+  ]
+}
