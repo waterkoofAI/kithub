@@ -14,12 +14,17 @@ Want to build a kit? Get the [Developer Kit](https://github.com/waterkoofAI/kith
 |---------|--------|----------|--------|-----------------|-----------|
 | [Asphodel](./asphodel) | `asphodel` | 4/4 tasks (100%) | Bitget | Sepolia playtest | Windows |
 | [BEEP](./beep) | `beep` | 4/8 tasks (~50%) | Bitget | Sui, points, squads, AI agents | Windows |
+| [Domination Finance](./domination_finance) | `domination_finance` | 2/4 tasks (~50%) | Bitget | Base LP and trading | Windows |
+| [Dustswap](./dustswap) | `dustswap` | 4/8 tasks (~50%) | Bitget | Base swap & quests | Windows |
 | [GIWA](./giwa) | `giwa` | 6/6 steps (~100%) | Bitget | GIWA Sepolia activity | Windows |
+| [Isometric](./isometric) | `isometric` | 4/7 tasks (~57%) | Bitget | Solana devnet trading | Windows |
 | [MNSTR](./monster) | `monster` | 6/6 tasks (~100%) | Bitget | Ethereum/Solana strategy game | Windows |
 | [Monetrix](./Monetrix) | `Monetrix` | 4/7 tasks (~57%) | Bitget | Hyperliquid Genesis Signal | Windows |
 | [Robin Markets](./robin_markets) | `robin_markets` | 4/4 tasks (~100%) | Bitget | Robin staking/referrals | Windows |
+| [RockSolid](./rocksolid) | `rocksolid` | 2/5 tasks (40%) | Bitget | Ethereum vaults | Windows |
 | [SHIFT](./Shift) | `Shift` | 3/6 tasks (~50%) | Bitget | Solana loyalty dashboard | Windows |
 | [Tangent](./tangent) | `tangent` | 3/6 tasks (~50%) | Bitget | Ethereum predeposit | Windows |
+| [Tulpea](./tulpea) | `tulpea` | 3/6 tasks (50%) | Bitget | MegaETH deposit | Windows |
 
 All kits are guided automation: browser navigation may be automated, but wallet approvals, signatures, deposits, trades, staking, claims, and other sensitive actions stay manual by design.
 
