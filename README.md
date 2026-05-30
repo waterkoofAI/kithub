@@ -14,6 +14,8 @@ Want to build a kit? Get the [Developer Kit](https://github.com/waterkoofAI/kith
 |---------|--------|----------|--------|-----------------|-----------|
 | [Asphodel](./asphodel) | `asphodel` | 4/4 tasks (100%) | Bitget | Sepolia playtest | Windows |
 | [BEEP](./beep) | `beep` | 4/8 tasks (~50%) | Bitget | Sui, points, squads, AI agents | Windows |
+| [Ceitnot Protocol](./ceitnot) | `ceitnot` | 6/6 steps (~100%) | Bitget | Arbitrum Sepolia yield-backed credit | Windows |
+| [DAC Quantum Chain](./dac) | `dac` | 8/8 steps (~100%) | Bitget | DAC Testnet QE points, badges, crates | Windows |
 | [Domination Finance](./domination_finance) | `domination_finance` | 2/4 tasks (~50%) | Bitget | Base LP and trading | Windows |
 | [Dustswap](./dustswap) | `dustswap` | 4/8 tasks (~50%) | Bitget | Base swap & quests | Windows |
 | [GIWA](./giwa) | `giwa` | 6/6 steps (~100%) | Bitget | GIWA Sepolia activity | Windows |
