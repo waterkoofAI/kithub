@@ -1,0 +1,17 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "dac-testnet",
+    "burn_dacc_amount": "0.1",
+    "stake_dacc_amount": "0.1",
+    "crate_opens_per_day": 5,
+    "test_transfer_addresses": [
+        "0xYourOtherTestWalletAddress"
+    ],
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}
