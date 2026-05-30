@@ -1,0 +1,15 @@
+{
+    "referral_code": "none",
+    "network": "arbitrum-sepolia",
+    "use_quicknode_faucet": false,
+    "preferred_collateral": "mock-wstETH",
+    "borrow_amount_ceitusd": "small",
+    "psm_swap_amount": "small",
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}
