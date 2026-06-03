@@ -1,12 +1,12 @@
 """
-WaterkoofAI x Monster Strategy (mnstr.xyz) Airdrop Script Kit v1.0
+WaterkoofAI x Monster Strategy (mnstr.xyz) Airdrop Script Kit v1.1
 ======================================================
 COVERAGE DECLARATION:
 - Project: Monster Strategy (mnstr.xyz)
 - Portal URL: https://mnstr.xyz
 - Total airdrop tasks: 6
-- Tasks automated by this Kit: 6 / 6 (100%)
-- Manual tasks remaining: None (all wallet approvals & purchases are manual by design)
+- Tasks automated by this Kit: 6 / 6 guided browser steps (paid actions stay optional and manual)
+- Manual tasks remaining: Fresh burner wallet setup, Bitget Wallet approvals, optional pack purchases, optional marketplace trades, and any real-fund actions
 - Estimated points from this Kit: Weekly leaderboard based (no fixed point system)
 - Tested on: Windows on 2026-05-13
 - Wallet used: Bitget Wallet (Chrome extension)
@@ -14,13 +14,14 @@ COVERAGE DECLARATION:
 SECURITY NOTICE:
 - This script is open source and fully auditable
 - Your private keys are NEVER collected or uploaded
+- Use a fresh burner wallet only; do NOT use or import your main wallet
 - Bitget Wallet signing steps require manual approval
-- Pack purchases require YOUR manual confirmation
+- Pack purchases require YOUR manual confirmation and are disabled by default
 - For educational purposes only. Use at your own risk.
 
 HOW TO USE:
 1. Drop STEP1_Drop_me_to_any_AI.md into any AI chat for guided setup
-2. Fill in STEP2_Fill_your_wallet_info.json with your wallet details
+2. Fill in STEP2_Fill_your_wallet_info.json with your burner wallet details
 3. Install Bitget Wallet Chrome extension:
    https://web3.bitget.com/share/2kwRSC?inviteCode=waterkoof
 4. Start Chrome with remote debugging (see If_you_dont_use_AI_read_me.txt)
@@ -85,6 +86,14 @@ def load_config():
         sys.exit(1)
     with open(CONFIG_FILE, "r") as f:
         return json.load(f)
+
+
+def config_flag_enabled(value):
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, str):
+        return value.strip().lower() in ("true", "yes", "1", "enabled")
+    return False
 
 
 def wait_for_user(msg):
@@ -156,7 +165,7 @@ def wait_and_click_any(page, selectors, description="button", timeout=6000):
 
 # ─────────────────────────────────────────────
 #  Bitget Wallet connection helper
-#  mnstr.xyz flow: Sign In → Continue with a wallet → Extension / QR
+#  mnstr.xyz flow: Sign In → Continue with a wallet → Bitget extension
 # ─────────────────────────────────────────────
 
 def connect_bitget_wallet(page):
@@ -221,9 +230,6 @@ def connect_bitget_wallet(page):
         "button:has-text('Bitget Wallet')",
         "text=Bitget Wallet",
         "text=BitKeep",
-        "text=Browser Wallet",
-        "text=Detected Wallet",
-        "text=Injected",
     ]
 
     for selector in extension_selectors:
@@ -259,59 +265,25 @@ def connect_bitget_wallet(page):
     # ── EXTENSION NOT INSTALLED ─────────────────────
     print("\n" + "="*50)
     print("BITGET WALLET EXTENSION NOT DETECTED")
-    print("Choose connection method:")
-    print("  [1] Extension Wallet (Bitget Wallet Chrome extension)")
-    print("  [2] Scan QR Code (Bitget Wallet mobile app)")
     print("="*50)
+    print("\nPlease install the Bitget Wallet extension:")
+    print("https://chrome.google.com/webstore/detail/bitkeep-crypto-nft-wallet/jiidiaalihmmhddjgbnbgdfflelocpak")
 
-    choice = input("Enter 1 or 2: ").strip()
+    wait_for_user(
+        "1. Install Bitget Wallet Chrome extension in this Chrome-Debug profile.\n"
+        "2. Create a fresh burner wallet in Bitget Wallet.\n"
+        "3. Do NOT import or use your main wallet.\n"
+        "4. Re-open wallet connect on mnstr.xyz.\n"
+        "5. Choose Bitget Wallet only.\n"
+        "6. Approve the connection manually.\n\n"
+        "Press ENTER when connected."
+    )
 
-    # ── OPTION 1: INSTALL EXTENSION ─────────────────────
-    if choice == "1":
-
-        print("\nInstall Bitget Wallet extension:")
-        print("https://chrome.google.com/webstore/detail/bitkeep-crypto-nft-wallet/jiidiaalihmmhddjgbnbgdfflelocpak")
-
-        wait_for_user(
-            "1. Install Bitget Wallet Chrome extension\n"
-            "2. Refresh the page if needed\n"
-            "3. Re-open wallet connect\n"
-            "4. Press ENTER when ready"
-        )
-
-        wait_and_click_any(
-            page,
-            extension_selectors,
-            description="Bitget Wallet",
-            timeout=5000
-        )
-
-        wait_for_user(
-            "Approve the connection in Bitget Wallet extension popup.\n"
-            "Press ENTER after approval."
-        )
-
-        success("Bitget Wallet connected")
-
-    # ── OPTION 2: QR CODE ─────────────────────
-    else:
-
-        step("Using QR code connection...")
-
-        wait_for_user(
-            "mnstr.xyz already supports built-in QR wallet connection.\n\n"
-            "1. Open Bitget Wallet mobile app\n"
-            "2. Use the scan feature\n"
-            "3. Scan the QR code shown on mnstr.xyz\n"
-            "4. Approve the connection\n"
-            "5. Press ENTER when done"
-        )
-
-        success("Bitget Wallet connected via QR")
+    success("Bitget Wallet connected manually")
 
 
 # ─────────────────────────────────────────────
-#  Main wallet flow — Monster Strategy (mnstr.xyz)
+#  Burner wallet flow — Monster Strategy (mnstr.xyz)
 # ─────────────────────────────────────────────
 
 def run_wallet(wallet, config, context):
@@ -338,7 +310,7 @@ def run_wallet(wallet, config, context):
     connect_bitget_wallet(page)
     time.sleep(2)
 
-    # ── TASK 3: Browse & Open Packs ──
+    # ── TASK 3: Review packs; purchases are opt-in and manual ──
     pack_tier = config.get("pack_tier", "starter").lower()
     pack_url = PACK_URLS.get(pack_tier, MNSTR_STARTER)
 
@@ -348,38 +320,38 @@ def run_wallet(wallet, config, context):
     time.sleep(3)
     success(f"{pack_tier.capitalize()} Packs page loaded")
 
-    # Try to click the open/buy pack button
-    pack_clicked = wait_and_click_any(
-        page,
-        [
-            "button:has-text('Open')",
-            "button:has-text('Buy')",
-            "button:has-text('Rip')",
-            "button:has-text('Pull')",
-            "text=Open Pack",
-            "text=Buy Pack",
-            "text=Rip Pack",
-            "a:has-text('START PULLING')",
-        ],
-        description="Open/Buy Pack button",
-        timeout=5000
-    )
-
     tier_prices = {"starter": "$50", "monster": "$250", "ultra": "$1,250"}
     tier_price = tier_prices.get(pack_tier, "varies")
+    pack_purchase_enabled = config_flag_enabled(config.get("pack_purchase_enabled", False))
+    max_budget = config.get("max_pack_budget_usd", 0)
+    payment_token = config.get("payment_token", "USDC")
 
-    wait_for_user(
-        f"Pack Opening — {pack_tier.capitalize()} ({tier_price} per pack)\n"
-        "  In the browser:\n"
-        "  1. Review the pack tier, odds, and average pull value\n"
-        "  2. Select your payment method (USDC, ETH, or USDm)\n"
-        "  3. Click 'Open Pack' / 'Buy' / 'Rip' to purchase\n"
-        "  4. Approve the transaction in Bitget Wallet popup\n"
-        "  5. Wait for the pack to be revealed\n"
-        "  6. Come back here and press ENTER\n\n"
-        "  If you don't want to buy a pack right now, just press ENTER to skip."
-    )
-    success("Pack opening step done")
+    if pack_purchase_enabled:
+        wait_for_user(
+            f"OPTIONAL paid pack purchase — {pack_tier.capitalize()} ({tier_price} per pack)\n\n"
+            "  SECURITY RULES:\n"
+            "  1. Use a fresh burner wallet only.\n"
+            "  2. Do NOT use or import your main wallet.\n"
+            f"  3. Fund the burner with no more than your intended budget: ${max_budget} plus gas.\n"
+            "  4. Review the pack tier, odds, and payment amount carefully.\n"
+            f"  5. Use your chosen payment token only if intended: {payment_token}.\n"
+            "  6. Click the pack purchase button manually in the browser if you choose to buy.\n"
+            "  7. Manually approve the Bitget Wallet popup only after checking every detail.\n\n"
+            "  If you do not want to buy a pack, just press ENTER to skip."
+        )
+        success("Optional pack purchase step reviewed")
+    else:
+        wait_for_user(
+            f"Pack page review only — {pack_tier.capitalize()} ({tier_price} per pack)\n\n"
+            "  Paid pack purchasing is disabled in STEP2_Fill_your_wallet_info.json.\n"
+            "  This script will not click any Open, Buy, Rip, Pull, or purchase button.\n\n"
+            "  In the browser:\n"
+            "  1. Review the pack tier, odds, and cost.\n"
+            "  2. Do not buy from a main wallet.\n"
+            "  3. Press ENTER here when done reviewing.\n\n"
+            "  To enable a paid pack later, set pack_purchase_enabled to true and use a fresh burner wallet only."
+        )
+        success("Pack page review done")
 
     # ── TASK 4: Browse Marketplace ──
     step("Navigating to Marketplace...")
@@ -389,16 +361,14 @@ def run_wallet(wallet, config, context):
     success("Marketplace loaded")
 
     wait_for_user(
-        "Marketplace — Browse and trade cards for points:\n\n"
+        "Marketplace — Browse only by default:\n\n"
         "  In the browser:\n"
         "  1. Browse available cards on the marketplace\n"
-        "  2. You can buy cards listed by other users\n"
-        "  3. You can list your own cards for sale\n"
-        "  4. Marketplace activity earns leaderboard points!\n"
-        "  5. Look for undervalued cards or cards you want to collect\n"
-        "  6. Come back here and press ENTER when done\n\n"
-        "  Tip: Consistent marketplace activity throughout the week\n"
-        "  helps maximize your leaderboard ranking."
+        "  2. Do not buy or list cards from a main wallet\n"
+        "  3. Any marketplace buy/list action must be manual and burner-wallet-only\n"
+        "  4. If you choose to trade, review every price and wallet popup carefully\n"
+        "  5. Come back here and press ENTER when done\n\n"
+        "  Tip: Review activity safely first. Only trade with funds you are willing to risk."
     )
     success("Marketplace activity done")
 
@@ -414,8 +384,8 @@ def run_wallet(wallet, config, context):
         "  In the browser:\n"
         "  1. Review your collected graded cards\n"
         "  2. Cards are stored in a secure, insured vault\n"
-        "  3. You can request physical delivery to your address\n"
-        "  4. Or sell back at 85% Fair Market Value anytime\n"
+        "  3. Do not enter shipping details unless you intentionally want physical delivery\n"
+        "  4. Any delivery, sale, or buyback action is manual and optional\n"
         "  5. Come back here and press ENTER\n\n"
         "  If your vault is empty, just press ENTER to continue."
     )
@@ -438,7 +408,7 @@ def run_wallet(wallet, config, context):
         "  4. Note your position for tracking progress\n"
         "  5. Come back here and press ENTER\n\n"
         "  Tips for maximizing points:\n"
-        "  - Open packs consistently throughout the week\n"
+        "  - If you intentionally buy packs, spread activity throughout the week\n"
         "  - Stay active on the marketplace\n"
         "  - Look for Double Points events\n"
         "  - Starter packs may give better points-per-dollar"
@@ -446,22 +416,21 @@ def run_wallet(wallet, config, context):
     success("Leaderboard check done")
 
     # ── Optional: Open Additional Packs ──
-    step("Optional: Open more packs for extra points...")
+    step("Optional: Review extra pack strategy...")
     wait_for_user(
-        "For better leaderboard positioning, consider opening more packs:\n\n"
+        "Extra pack strategy review:\n\n"
+        "  Paid packs are optional and should only be done from a fresh burner wallet.\n\n"
         "  Strategy tips:\n"
         "  - Spread pack openings over multiple days\n"
         "  - Starter packs ($50) are most cost-effective for points\n"
         "  - Monster packs ($250) offer better card value odds\n"
         "  - Ultra packs ($1,250) have the highest mythic chance\n"
         "  - Watch for Double Points events!\n\n"
-        "  If you want to open another pack:\n"
-        "  1. Go back to the Packs tab in the browser\n"
-        "  2. Select a pack tier\n"
-        "  3. Complete the purchase and approve in Bitget Wallet\n\n"
-        "  Press ENTER when done (or to skip)."
+        "  This script will not buy another pack for you.\n"
+        "  If you choose to buy manually, use only a minimally funded burner wallet.\n\n"
+        "  Press ENTER when done reviewing."
     )
-    success("Additional packs step done")
+    success("Additional pack strategy reviewed")
 
     # ── FINAL STEP: Close tabs ──
     wait_for_user("Press ENTER to finish this wallet and close the tabs")
@@ -470,11 +439,11 @@ def run_wallet(wallet, config, context):
     print(f"\nWallet {wallet['address'][:10]}... DONE!")
     print(f"\nSummary of completed tasks:")
     print(f"  [x] Connected Bitget Wallet to mnstr.xyz")
-    print(f"  [x] Pack opening ({pack_tier.capitalize()})")
-    print(f"  [x] Marketplace browsing & trading")
+    print(f"  [x] Pack page reviewed ({pack_tier.capitalize()})")
+    print(f"  [x] Marketplace browsing reviewed")
     print(f"  [x] Vault review")
     print(f"  [x] Leaderboard & points check")
-    print(f"  [x] Additional pack opportunity")
+    print(f"  [x] Additional pack strategy review")
 
 
 # ─────────────────────────────────────────────
@@ -483,10 +452,11 @@ def run_wallet(wallet, config, context):
 
 def main():
     print("""
-WaterkoofAI x Monster Strategy (mnstr.xyz) Airdrop Script Kit v1.0
+WaterkoofAI x Monster Strategy (mnstr.xyz) Airdrop Script Kit v1.1
 t.me/WaterkoofAI_Bot
 --------------------------------------------------
 This script NEVER collects private keys
+Burner wallet REQUIRED - never use or import a main wallet
 Use at your own risk - For educational purposes only
 Wallet: Bitget Wallet (Chrome extension)
 --------------------------------------------------
@@ -510,13 +480,17 @@ Wallet: Bitget Wallet (Chrome extension)
 
     print(f"Found {len(wallets)} wallet(s) in config")
     print(f"Referral code: {config.get('referral_code', 'none')}")
+    print(f"Burner wallet required: {config.get('burner_wallet_required', True)}")
 
     # Display configured pack settings
     pack_tier = config.get("pack_tier", "starter").capitalize()
     tier_prices = {"Starter": "$50", "Monster": "$250", "Ultra": "$1,250"}
+    pack_purchase_enabled = config_flag_enabled(config.get("pack_purchase_enabled", False))
 
     print(f"\nPack settings:")
     print(f"  Pack tier:       {pack_tier} ({tier_prices.get(pack_tier, 'varies')} per pack)")
+    print(f"  Paid purchase:   {'enabled' if pack_purchase_enabled else 'disabled by default'}")
+    print(f"  Max budget:      ${config.get('max_pack_budget_usd', 0)}")
 
     chrome_cmd = get_chrome_debug_command()
 
@@ -526,12 +500,17 @@ BEFORE YOU CONTINUE:
 1. Make sure Bitget Wallet Chrome extension is installed:
    https://chrome.google.com/webstore/detail/bitkeep-crypto-nft-wallet/jiidiaalihmmhddjgbnbgdfflelocpak
 
-2. Make sure Chrome is running with remote debugging.
+2. Create a fresh burner wallet in Bitget Wallet inside the Chrome-Debug profile.
+   DO NOT import or use your main wallet.
+   DO NOT paste any seed phrase or private key into this script.
+
+3. Make sure Chrome is running with remote debugging.
    Command to start Chrome (run in a separate terminal):
 
    {chrome_cmd}
 
-3. Make sure you have funds for pack purchases:
+4. Paid pack purchases are optional and disabled by default.
+   If you enable them, fund the burner wallet only with your intended spend plus gas:
    - Starter: $50 per pack
    - Monster: $250 per pack
    - Ultra:   $1,250 per pack
@@ -565,14 +544,16 @@ All wallets processed!
 
 Monster Strategy Activity Checklist:
   [x] Connected wallet to mnstr.xyz
-  [x] Pack opening — pulled graded cards
-  [x] Marketplace — browsed & traded
+  [x] Pack page reviewed safely
+  [x] Marketplace reviewed safely
   [x] Vault — reviewed collected cards
   [x] Leaderboard — checked weekly points
 
 Tips for maximizing points & potential airdrop:
-  - Open packs consistently throughout the week
-  - Stay active on the marketplace daily
+  - Never use or import your main wallet for this kit
+  - Use a fresh burner wallet with only the funds you are willing to spend
+  - If you intentionally buy packs, spread activity throughout the week
+  - Stay active on the marketplace safely
   - Points reset every Sunday — plan accordingly
   - Watch for Double Points events
   - Starter packs give best points-per-dollar for leaderboard

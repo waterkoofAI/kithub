@@ -1,6 +1,10 @@
 {
     "referral_code": "YOUR_REFERRAL_CODE",
+    "burner_wallet_required": true,
+    "pack_purchase_enabled": false,
     "pack_tier": "starter",
+    "payment_token": "USDC",
+    "max_pack_budget_usd": 50,
     "wallets": [
         {
             "address": "0xYourBitgetWalletAddress",

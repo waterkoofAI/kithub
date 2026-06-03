@@ -7,8 +7,8 @@ Follow this exact sequence and wait for the user to confirm each step before mov
 ---
 
 CONTEXT:
-This kit automates Monster Strategy (mnstr.xyz) activity to help you earn weekly leaderboard points and build on-chain history for a potential future airdrop. The script connects to a real Chrome browser via remote debugging, so Bitget Wallet works normally.
-All Bitget Wallet signing steps require manual approval — private keys are never touched.
+This kit automates Monster Strategy (mnstr.xyz) activity to help you earn weekly leaderboard points and build on-chain history for a potential future airdrop. The script connects to a real Chrome browser via remote debugging, so Bitget Wallet works normally, but it must be used with a fresh burner wallet only.
+All Bitget Wallet signing steps require manual approval. Private keys are never touched, seed phrases are never requested, and paid pack purchases are disabled by default.
 
 The kit contains these files:
 - STEP1_Drop_me_to_any_AI.md          (this file — the prompt you are reading now)
@@ -41,9 +41,10 @@ STEP 1 — Accounts and software checklist
 Confirm the user has:
 
   Accounts needed:
-  - A Bitget Wallet with their wallet address ready
-  - Funds available for pack purchases (USDC, ETH, or USDm)
-  - Enough native gas tokens on the chain mnstr.xyz uses
+  - A fresh burner Bitget Wallet public address ready, or they will create one in the Chrome-Debug profile in Step 5
+  - Do NOT use or import a main wallet for this kit
+  - Optional only: funds in the burner wallet for pack purchases if the user intentionally enables paid purchases
+  - Optional only: enough native gas tokens in the burner wallet if the user intentionally enables paid purchases or marketplace trades
 
   Software needed:
   - Google Chrome (https://www.google.com/chrome/)
@@ -92,20 +93,25 @@ If pip gives a "not found" error on Windows, try:
 
 ---
 
-STEP 3 — Edit STEP2_Fill_your_wallet_info.json
+STEP 3 — Review STEP2_Fill_your_wallet_info.json
 
 Tell the user to open STEP2_Fill_your_wallet_info.json in any text editor:
   Windows: right-click the file → Open with → Notepad
   macOS: right-click the file → Open With → TextEdit
 
-Fill in:
-  - "address":      their Bitget Wallet address (starts with 0x)
-  - "pack_tier":    "starter", "monster", or "ultra"
-  - "payment_token": "USDC", "ETH", or "USDm"
-  - "referral_code": a referral code if they have one, otherwise leave as-is
+Review these fields. If the user does not have a Chrome-Debug burner wallet address yet, tell them to leave the address placeholder for now and come back after Step 5.
+
+Fill in or confirm:
+  - "address":                 their fresh burner Bitget Wallet address (starts with 0x)
+  - "burner_wallet_required":  keep this as true
+  - "pack_purchase_enabled":   keep this as false for the default safe review-only run
+  - "max_pack_budget_usd":     spending limit if they intentionally enable paid purchases later
+  - "pack_tier":               "starter", "monster", or "ultra"
+  - "payment_token":           "USDC", "ETH", or "USDm" if paid purchases are enabled
+  - "referral_code":           a referral code if they have one, otherwise leave as-is
 
 For multiple wallets, copy the wallet block and add more entries inside the [ ] brackets.
-Important: never put private keys or seed phrases in this file.
+Important: never put private keys or seed phrases in this file. Never import or use a main wallet inside the Chrome-Debug profile.
 
 ---
 
@@ -143,8 +149,12 @@ STEP 5 — Install Bitget Wallet in Chrome-Debug (first time only)
 In the Chrome window that just opened, tell the user to go to:
   https://chrome.google.com/webstore/detail/bitkeep-crypto-nft-wallet/jiidiaalihmmhddjgbnbgdfflelocpak
 
-Install Bitget Wallet, then import their wallet using their Secret Recovery Phrase.
-Remind them: this only needs to be done once. Chrome-Debug will remember Bitget Wallet next time.
+Install Bitget Wallet, then create a NEW burner wallet inside this Chrome-Debug profile.
+Do NOT import an existing wallet, do NOT import a main wallet, and do NOT paste any Secret Recovery Phrase into the debug browser profile.
+Tell the user to copy only the burner wallet public address into STEP2_Fill_your_wallet_info.json.
+If the address field was left as a placeholder in Step 3, tell the user to open STEP2_Fill_your_wallet_info.json now and replace it with this burner wallet address.
+If the user intentionally enables paid purchases later, they should fund only the burner wallet with the exact spend they are comfortable risking plus gas.
+Remind them: this only needs to be done once. Chrome-Debug will remember this burner wallet next time.
 
 ---
 
@@ -169,9 +179,10 @@ To find the correct path:
   macOS: right-click the kit folder, hold Option, click "Copy as Pathname"
 
 Then walk them through each ACTION NEEDED prompt:
-- Bitget Wallet connect popup → switch to correct wallet, click Connect in Bitget Wallet
-- Pack purchase → review pack details, approve transaction in Bitget Wallet
-- Marketplace browsing → script will navigate through marketplace pages
+- Bitget Wallet connect popup → confirm this is the fresh burner wallet, then click Connect in Bitget Wallet
+- Pack page review → paid purchases are disabled by default; review pack details only
+- Optional pack purchase → only if "pack_purchase_enabled" is true, manually click and approve from the burner wallet
+- Marketplace browsing → script will navigate through marketplace pages; any buy/list action is manual and burner-wallet-only
 - Vault checking → view your collected cards
 - Leaderboard viewing → check your weekly points ranking
 
@@ -190,6 +201,12 @@ A: Make sure Chrome is still running in the other terminal with --remote-debuggi
 
 Q: Bitget Wallet shows "Not installed" on mnstr.xyz
 A: The Chrome-Debug profile needs Bitget Wallet installed. Follow Step 5 again.
+
+Q: Can I use my main wallet?
+A: No. Use a fresh burner wallet only. Do not import or connect a main wallet in the Chrome-Debug profile.
+
+Q: Why did the script not buy a pack automatically?
+A: Paid pack purchases are disabled by default for safety. To buy later, set "pack_purchase_enabled" to true, fund only the burner wallet, and approve everything manually.
 
 Q: Script skips a task saying "may already be done"
 A: The button was not detected automatically. Complete that step manually in the browser, then press ENTER in the terminal to continue.

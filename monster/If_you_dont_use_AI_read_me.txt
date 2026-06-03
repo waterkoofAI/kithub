@@ -10,22 +10,24 @@ WHAT THIS KIT DOES
 -------------------
 This Kit automates Monster Strategy (mnstr.xyz) activity to help you
 earn weekly leaderboard points and build on-chain history for a
-potential future airdrop.
+potential future airdrop. It is designed for a fresh burner wallet only.
 
 Tasks covered:
   1. Connect Bitget Wallet to mnstr.xyz
-  2. Navigate to Packs and open a pack (Starter / Monster / Ultra)
-  3. Browse and trade on the Marketplace
+  2. Navigate to Packs and review pack details (Starter / Monster / Ultra)
+  3. Browse the Marketplace
   4. Check your Vault for collected graded cards
   5. Monitor the weekly Leaderboard for points ranking
-  6. Additional pack opening opportunity
+  6. Additional pack strategy review
 
 Wallet used: Bitget Wallet (Chrome extension)
+Wallet safety: use a fresh burner wallet only. Do NOT use or import a main wallet.
+Paid pack purchases: disabled by default and optional.
 
 COVERAGE:
   - Total tasks: 6
-  - Automated by this Kit: 6 / 6 (100%)
-  - Manual tasks: None (wallet approvals & purchases are manual by design)
+  - Automated by this Kit: 6 / 6 guided browser steps
+  - Manual tasks: fresh burner wallet setup, wallet approvals, optional pack purchases, optional marketplace trades
   - Wallet used: Bitget Wallet
     Download: https://chrome.google.com/webstore/detail/bitkeep-crypto-nft-wallet/jiidiaalihmmhddjgbnbgdfflelocpak
 
@@ -67,36 +69,7 @@ You need all of the following installed before running the script:
       playwright install chromium
 
 
-STEP 1: INSTALL BITGET WALLET
--------------------------------
-1. Open Chrome
-2. Go to: https://chrome.google.com/webstore/detail/bitkeep-crypto-nft-wallet/jiidiaalihmmhddjgbnbgdfflelocpak
-3. Click "Add to Chrome"
-4. Create a new wallet or import an existing one
-5. WRITE DOWN your recovery phrase and store it safely
-6. Pin the extension to your Chrome toolbar (click puzzle icon > pin)
-
-
-STEP 2: FILL IN YOUR WALLET INFO
-----------------------------------
-Open STEP2_Fill_your_wallet_info.json in a text editor (Notepad, VS Code, etc.).
-Fill in the following fields:
-
-  "address"         Your Bitget Wallet address (starts with 0x)
-  "name"            Your display name (optional)
-  "email"           Your email address (optional)
-  "referral_code"   Referral code if you have one
-  "pack_tier"       Which pack to open: starter, monster, or ultra
-
-To find your Bitget Wallet address:
-  1. Open the Bitget Wallet extension
-  2. Your address is shown at the top (starts with 0x...)
-  3. Click it to copy
-
-Save the file after editing.
-
-
-STEP 3: START CHROME WITH REMOTE DEBUGGING
+STEP 1: START CHROME WITH REMOTE DEBUGGING
 --------------------------------------------
 IMPORTANT: Close ALL Chrome windows first.
 
@@ -114,11 +87,38 @@ macOS:
 LINUX:
   google-chrome --remote-debugging-port=9222 --no-first-run --user-data-dir="$HOME/.config/google-chrome-debug"
 
-Chrome will open. If this is the first time, you may need to:
-  - Install Bitget Wallet extension again in this profile
-  - Import or set up your wallet again in this profile
-
 Keep this Chrome window open.
+
+
+STEP 2: INSTALL BITGET WALLET AND CREATE A BURNER
+---------------------------------------------------
+Use the Chrome-Debug window from Step 1.
+
+1. Go to: https://chrome.google.com/webstore/detail/bitkeep-crypto-nft-wallet/jiidiaalihmmhddjgbnbgdfflelocpak
+2. Click "Add to Chrome"
+3. Create a NEW burner wallet for this kit
+4. Do NOT import an existing wallet and do NOT use your main wallet
+5. Keep any wallet backup details private and offline; never paste them into this script or the config file
+6. Copy only the burner wallet public address (starts with 0x)
+7. Pin the extension to your Chrome toolbar (click puzzle icon > pin)
+
+
+STEP 3: FILL IN YOUR WALLET INFO
+----------------------------------
+Open STEP2_Fill_your_wallet_info.json in a text editor (Notepad, VS Code, etc.).
+Fill in the following fields:
+
+  "address"         Your fresh burner Bitget Wallet address from Chrome-Debug (starts with 0x)
+  "name"            Your display name (optional)
+  "email"           Your email address (optional)
+  "referral_code"   Referral code if you have one
+  "burner_wallet_required"  Keep this true
+  "pack_purchase_enabled"   Keep this false for the default safe review-only run
+  "max_pack_budget_usd"     Spending limit if you intentionally enable paid purchases later
+  "pack_tier"       Which pack page to review: starter, monster, or ultra
+  "payment_token"   Payment token to use only if paid purchases are enabled
+
+Save the file after editing.
 
 
 STEP 4: RUN THE SCRIPT
@@ -144,16 +144,17 @@ The script will:
 
   1. Open mnstr.xyz in Chrome
   2. Click "Connect Wallet" and try to select Bitget Wallet
-     -> You manually approve the connection in the Bitget popup
+     -> You confirm it is the fresh burner wallet and manually approve the connection in the Bitget popup
   3. Navigate to your chosen Pack tier (Starter/Monster/Ultra)
-     -> You review odds, select payment, and click to purchase
-     -> You approve the transaction in Bitget Wallet
+     -> Paid purchases are disabled by default
+     -> You review odds, cost, and payment options without buying
+     -> If you intentionally enabled paid purchases, you click and approve manually from the burner wallet only
   4. Navigate to the Marketplace
-     -> You browse, buy, or list cards for trading
-     -> Marketplace activity earns leaderboard points
+     -> You browse marketplace pages
+     -> Any buy/list action is optional, manual, and burner-wallet-only
   5. Navigate to your Vault
      -> You review your collected graded cards
-     -> You can request shipping or sell back at 85% FMV
+     -> Shipping, sale, or buyback actions are optional and manual
   6. Open the Leaderboard
      -> You check your weekly points and ranking
      -> Top players win bonus cards and free spins
@@ -164,8 +165,10 @@ Press ENTER in the terminal after completing each action.
 
 TIPS FOR MAXIMIZING POINTS & POTENTIAL AIRDROP
 -------------------------------------------------
-  - Open packs CONSISTENTLY throughout the week, not all at once
-  - Stay ACTIVE on the marketplace — daily interaction earns points
+  - Never use or import your main wallet for this kit
+  - Use a fresh burner wallet with only the funds you are willing to risk
+  - If you intentionally buy packs, spread pack openings throughout the week instead of all at once
+  - Stay ACTIVE on the marketplace safely; any buy/list action is manual
   - Points RESET every Sunday — plan your biggest activity mid-week
   - Watch for DOUBLE POINTS events — fastest way to climb rankings
   - STARTER packs ($50) give the best points-per-dollar ratio
@@ -184,10 +187,17 @@ TROUBLESHOOTING
 "Bitget Wallet not found"
   -> Install the extension in the debug Chrome profile:
      https://chrome.google.com/webstore/detail/bitkeep-crypto-nft-wallet/jiidiaalihmmhddjgbnbgdfflelocpak
+  -> Create a fresh burner wallet in that profile
+  -> Do NOT import or use a main wallet
 
 "Transaction failed"
-  -> Check that you have enough USDC, ETH, or USDm for the pack
-  -> Check that you have enough gas tokens for the transaction
+  -> Paid transactions are optional and disabled by default
+  -> If you intentionally enabled them, check that the burner wallet has enough USDC, ETH, or USDm for the pack
+  -> Check that the burner wallet has enough gas tokens for the transaction
+
+"Can I use my main wallet?"
+  -> No. Use a fresh burner wallet only.
+  -> Do not import a main wallet into the Chrome-Debug profile.
 
 "Chrome path not found" (Windows)
   -> Right-click Chrome shortcut > Properties > copy the Target path
@@ -201,7 +211,10 @@ TROUBLESHOOTING
 
 SECURITY NOTICE
 -----------------
+  - Use a fresh burner wallet only
+  - Do NOT use or import your main wallet in the Chrome-Debug profile
   - This script NEVER asks for your private key or seed phrase
+  - Paid pack purchases are disabled by default
   - All transactions require YOUR manual approval in Bitget Wallet
   - The script only reads your public wallet address from the config file
   - Pack purchases require YOUR explicit confirmation
