@@ -1,0 +1,19 @@
+{
+    "referral_code": "none",
+    "network": "pod-devnet",
+    "preferred_markets": [
+        "S&P 500",
+        "NASDAQ 100",
+        "Gold"
+    ],
+    "trade_size_usd": "small",
+    "max_leverage": "2x",
+    "waitlist_participation": "manual_optional",
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}
