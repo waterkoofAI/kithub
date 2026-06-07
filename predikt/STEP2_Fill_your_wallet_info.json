@@ -3,7 +3,7 @@
     "network": "solana",
     "wallets": [
         {
-            "address": "0x0YourBitgetWalletAddress",
+            "address": "0xYourBitgetWalletAddress",
             "name": "YourDisplayName",
             "email": "your@email.com"
         }
