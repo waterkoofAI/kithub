@@ -1,0 +1,11 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "Arbitrum Sepolia",
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}
