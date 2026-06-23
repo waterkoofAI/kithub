@@ -1,0 +1,14 @@
+{
+    "referral_code": "AIRDROPSIO",
+    "network": "solana",
+    "minimum_bet_sol": "0.001",
+    "i_confirm_solpump_is_legal_for_me": false,
+    "enable_real_money_tasks": false,
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}

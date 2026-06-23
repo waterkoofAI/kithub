@@ -1,0 +1,15 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "bsc",
+    "payment_token": "USDT",
+    "default_trade_amount_usdt": "5",
+    "i_confirm_42_is_legal_for_me": false,
+    "enable_real_money_tasks": false,
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}
