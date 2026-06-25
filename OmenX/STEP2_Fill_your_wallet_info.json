@@ -1,0 +1,15 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "base",
+    "payment_token": "USDC",
+    "default_position_size_usd": "5",
+    "enable_real_money_tasks": false,
+    "i_confirm_omenx_is_legal_for_me": false,
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}

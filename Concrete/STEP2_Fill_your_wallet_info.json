@@ -1,0 +1,14 @@
+{
+    "referral_code": "6a71f1e1",
+    "networks": "ethereum,arbitrum,berachain",
+    "default_deposit_asset": "USDT",
+    "enable_real_money_tasks": false,
+    "i_understand_concrete_defi_risks": false,
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}

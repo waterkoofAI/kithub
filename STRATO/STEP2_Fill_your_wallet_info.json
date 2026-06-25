@@ -1,0 +1,15 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "strato",
+    "payment_token": "USDST",
+    "default_deposit_asset": "USDT",
+    "enable_real_money_tasks": false,
+    "i_understand_strato_defi_risks": false,
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}

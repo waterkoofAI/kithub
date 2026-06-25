@@ -1,0 +1,14 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "evm_or_solana",
+    "default_lineup_size": "2",
+    "enable_real_money_tasks": true,
+    "i_confirm_picks_is_legal_for_me": true,
+    "wallets": [
+        {
+            "address": "0x0YourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}

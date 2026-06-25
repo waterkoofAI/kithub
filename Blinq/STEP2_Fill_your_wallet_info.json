@@ -1,0 +1,14 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "monad",
+    "payment_token": "USDC",
+    "enable_real_money_tasks": false,
+    "i_confirm_blinq_is_legal_for_me": false,
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}

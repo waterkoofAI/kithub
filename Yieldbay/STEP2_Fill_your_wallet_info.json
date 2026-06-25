@@ -1,0 +1,14 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "solana",
+    "default_deposit_asset": "SOL",
+    "enable_real_money_tasks": false,
+    "i_understand_yieldbay_defi_risks": false,
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}

@@ -1,0 +1,17 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "abstract",
+    "payment_token": "USDC",
+    "secondary_network": "bnb",
+    "secondary_token": "USD1",
+    "default_trade_amount_usd": "5",
+    "enable_real_money_tasks": false,
+    "i_confirm_myriad_is_legal_for_me": false,
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}

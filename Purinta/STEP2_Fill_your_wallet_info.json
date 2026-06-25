@@ -1,0 +1,12 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "morpho",
+    "x_post_url": "PASTE_YOUR_X_POST_URL_HERE",
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}

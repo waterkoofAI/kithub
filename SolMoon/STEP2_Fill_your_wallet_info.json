@@ -1,0 +1,15 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "solana",
+    "minimum_stake_sol": "0.001",
+    "hourly_airdrop_stake_sol": "0.01",
+    "enable_real_money_tasks": false,
+    "i_confirm_solmoon_is_legal_for_me": false,
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}
