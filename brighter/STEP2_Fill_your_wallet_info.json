@@ -1,0 +1,11 @@
+{
+    "referral_code_to_enter": "AIRDROPS",
+    "network": "ethereum",
+    "wallets": [
+        {
+            "address": "0xYourBitgetWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}

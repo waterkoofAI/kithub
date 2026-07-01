@@ -1,0 +1,14 @@
+{
+    "referral_code": "YOUR_REFERRAL_CODE",
+    "network": "solana",
+    "default_pack_spend_usdc": "10",
+    "i_understand_gacha_costs_real_money": false,
+    "enable_real_money_tasks": false,
+    "wallets": [
+        {
+            "address": "YourSolanaWalletAddress",
+            "name": "YourDisplayName",
+            "email": "your@email.com"
+        }
+    ]
+}
