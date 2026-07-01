@@ -10,7 +10,7 @@ Want to build a kit? Get the [Developer Kit](https://github.com/waterkoofAI/kith
 
 ## Available Kits
 
-Total available kits /: **39**
+Total available kits /: **41**
 
 | Project | Folder | Coverage | Wallet | Network / Focus | Tested On |
 |---------|--------|----------|--------|-----------------|-----------|
@@ -53,6 +53,8 @@ Total available kits /: **39**
 | [Vibe Trading](./vibe_trading) | `vibe_trading` | 7/7 tasks (100%) | Bitget | Hyperliquid beta trading | Windows |
 | [Yieldbay](./Yieldbay) | `Yieldbay` | 8/8 steps (100%) | Bitget | Solana yield points and campaigns | Windows |
 | [Zoth](./zoth) | `zoth` | 6/6 tasks (100%) | Bitget | Base privacy stablecoin neobank | Windows |
+| [Brighter](./brighter) | `brighter` | 6/6 tasks (100%) | Bitget | Ethereum, Points earnings | Windows |
+| [Collector Crypt](./collectorcrypt) | `collectorcrypt` | 7/7 tasks (100%) | Bitget | Solana, Games participation | Windows |
 
 All kits are guided automation: browser navigation may be automated, but wallet approvals, signatures, deposits, trades, staking, claims, and other sensitive actions stay manual by design.
 
